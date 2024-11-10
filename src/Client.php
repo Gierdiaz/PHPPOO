@@ -14,6 +14,11 @@ class Client extends Person
         $this->clientId = $clientId;
     }
 
+    public function identifier(): string
+    {
+        return "Nível: {$this->membershipLevel}, CNPJ: {$this->cnpj}";
+    }
+
     public function getMembershipLevel(): string
     {
         return $this->membershipLevel;

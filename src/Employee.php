@@ -13,6 +13,11 @@ class Employee extends Person
         $this->salary = $salary;
     }
 
+    public function identifier(): string
+    {
+        return "Cargo: {$this->jobTitle}, Salário: R$ {$this->salary}";
+    }
+
     public function getJobTitle(): string
     {
         return $this->jobTitle;

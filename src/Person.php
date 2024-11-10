@@ -1,6 +1,7 @@
 <?php
 
-class Person
+// Não podem ser instanciados objetos a partir da classe abstrata
+abstract class Person
 {
     private $name;
     private $age;
@@ -55,6 +56,8 @@ class Person
     {
         return self::$isAdult;
     }
+
+    protected abstract function identifier(): string;
     
     public function getName(): string
     {
