@@ -3,13 +3,13 @@
 // Não podem ser instanciados objetos a partir da classe abstrata
 abstract class Person
 {
-    private $name;
+    protected $name;
     private $age;
     private $gender;
     private $dateOfBirth;
     private Address $address; // associação "Pesosa tem um endereço"
     private $phoneNumber;
-    private $email;
+    protected $email;
 
     private static $isAdult = false;
 

@@ -29,6 +29,10 @@ $client = new Client('João', 27, 'male', '01-07-1997', $addressRiodeJaneiro, '+
 
 echo "<pre>";
 try {
+
+    $employee->setPassword('123456');
+    $employee->login("gierdiaz@example.com", "123456");
+
     var_dump($employee);
 } catch (InvalidArgumentException $e) {
     echo $e->getMessage();
