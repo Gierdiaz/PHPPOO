@@ -1,9 +1,11 @@
 <?php
 
-require_once 'Authentication.php';
+require_once 'Authentication.php';~
+require_once 'Timestamps.php';
 
 class Employee extends Person implements Authentication
 {
+    use Timestamps;
 
     private string $jobTitle;
     private float $salary;
@@ -14,6 +16,7 @@ class Employee extends Person implements Authentication
         parent::__construct($name, $age, $gender, $dateOfBirth, $address, $phoneNumber, $email);
         $this->jobTitle = $jobTitle;
         $this->salary = $salary;
+        $this->updateTimestamps();
     }
 
     public function login(string $email, string $password): void

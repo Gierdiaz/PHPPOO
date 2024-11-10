@@ -2,6 +2,8 @@
 
 class Client extends Person
 {
+    use Timestamps;
+
     private string $membershipLevel;
     private string $cnpj;
     private string $clientId;
@@ -12,6 +14,7 @@ class Client extends Person
         $this->membershipLevel = $membershipLevel;
         $this->cnpj = $cnpj;
         $this->clientId = $clientId;
+        $this->updateTimestamps();
     }
 
     public function identifier(): string

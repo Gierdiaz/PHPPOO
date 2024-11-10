@@ -5,27 +5,65 @@ require_once 'Address.php';
 require_once 'Employee.php';
 require_once 'Client.php';
 
-// Criando o objeto Address
-$addressRiodeJaneiro = new Address('RJ', '23017-130', 'Rua Olinto da Gama Botelho', '450', 'Rio de Janeiro', 'RJ', 'Brasil');
-$addressIraja = new Address('RJ', '21361-360', 'Rua José Machado', '1111', 'Iraja', 'RJ', 'Brasil');
+// Criando os objetos Address com os respectivos dados
+$addressRiodeJaneiro = new Address(
+    'RJ',                    // Estado
+    '23017-130',             // CEP
+    'Rua Olinto da Gama Botelho', // Nome da rua
+    '450',                   // Número
+    'Rio de Janeiro',        // Bairro
+    'RJ',                    // Estado
+    'Brasil'                 // País
+);
 
-// Criando o objeto Person (Agora não mais possível instanciar por ser uma classe abstrata)
-//$person = new Person('John Doe', 20, 'male', '10-11-2004', $addressIraja, '555-555-5555', 'jX3oU@example.com');
+$addressIraja = new Address(
+    'RJ',                    // Estado
+    '21361-360',             // CEP
+    'Rua José Machado',      // Nome da rua
+    '1111',                  // Número
+    'Irajá',                 // Bairro
+    'RJ',                    // Estado
+    'Brasil'                 // País
+);
+
 
 // Criando o objeto Employee
-$employee = New Employee('Állison', 27, 'male', '01-07-1997', $addressRiodeJaneiro, '+55 (21) 9 9976-55922', 'gierdiaz@example.com', 'Software Developer', 5000);
+$employee = new Employee(
+    'Állison',
+    27,
+    'male',
+    '01-07-1997',
+    $addressRiodeJaneiro,
+    '+55 (21) 9 9976-55922',
+    'gierdiaz@example.com',
+    'Software Developer',
+    5000
+);
+
+// Exibindo as datas de criação e atualização para o Employee
+echo 'Employee Created At: ' . $employee->getCreatedAt()->format('Y-m-d H:i:s') . PHP_EOL;
+$employee->updateTimestamps();
+echo 'Employee Updated At: ' . $employee->getUpdatedAt()->format('Y-m-d H:i:s') . PHP_EOL;
+
 
 // Criando o objeto Client
-$client = new Client('João', 27, 'male', '01-07-1997', $addressRiodeJaneiro, '+55 (21) 9 9976-55922', 'joao@example.com', 'Gold', '11.111.111/1111-11', '1234-1234-1234-1234');
+$client = new Client(
+    'João',
+    27,
+    'male',
+    '01-07-1997',
+    $addressRiodeJaneiro,
+    '+55 (21) 9 9976-55922',
+    'joao@example.com',
+    'Gold',
+    '11.111.111/1111-11',
+    '1234-1234-1234-1234'
+);
 
-// echo "<pre>";
-// try {
-//     var_dump($person);
-// } catch (InvalidArgumentException $e) {
-//     echo $e->getMessage();
-// }
-// echo "</pre>";
-
+// Exibindo as datas de criação e atualização para o Client
+echo 'Client Created At: ' . $client->getCreatedAt()->format('Y-m-d H:i:s') . PHP_EOL;
+$client->updateTimestamps();
+echo 'Client Updated At: ' . $client->getUpdatedAt()->format('Y-m-d H:i:s') . PHP_EOL;
 
 echo "<pre>";
 try {
