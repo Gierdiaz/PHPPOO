@@ -1,23 +1,11 @@
 <?php
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 use App\Models\Address;
 use App\Models\Client;
 use App\Models\Employee;
 use App\Models\Person;
-use App\Infrastructure\Database\Postgres;
-
-use Dotenv\Dotenv;
-
-$dotenv = Dotenv::createImmutable(__DIR__);
-$dotenv->load();
-
-$dbHost = getenv('DB_HOST');
-$dbPort = getenv('DB_PORT');
-$dbName = getenv('DB_NAME');
-$dbUser = getenv('DB_USER');
-$dbPassword = getenv('DB_PASSWORD');
 
 // Criando os objetos Address com os respectivos dados
 $addressRiodeJaneiro = new Address(

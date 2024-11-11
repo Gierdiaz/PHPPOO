@@ -17,23 +17,3 @@ services:
     container_name: php-poo-php
     volumes:
       - ./App:/var/www/html
-    environment:
-      - DB_HOST=postgres
-      - DB_PORT=5432
-      - DB_NAME=phppoo
-      - DB_USER=phppoo
-      - DB_PASSWORD=secret
-    depends_on:
-      - postgres
-
-  postgres:
-    image: postgres:latest
-    container_name: php-poo-postgres
-    environment:
-      POSTGRES_USER: phppoo
-      POSTGRES_PASSWORD: secret
-      POSTGRES_DB: phppoo
-    volumes:
-      - ./docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
-    ports:
-      - "5432:5432"
