@@ -2,10 +2,21 @@
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
+use App\Classes\Crud;
 use App\Models\Address;
 use App\Models\Client;
 use App\Models\Employee;
 use App\Models\Person;
+
+$crud = New Crud(
+    'campo',
+    'tabela'
+);
+// Fluent Interface
+echo $crud->getRead()->getWrite()->getView();
+
+echo "<br><br>";
+
 
 // Criando os objetos Address com os respectivos dados
 $addressRiodeJaneiro = new Address(
@@ -94,16 +105,3 @@ echo "<h1>Is Adult: " . Person::getIsAdultStatus() . "</h1>";
 echo "<p>Employee Identifier: " . $employee->identifier() . "</p>";
 
 echo "<p>Client Identifier: " . $client->identifier() . "</p>";
-
-echo "<hr>";
-
-// Exemplo de uso do banco de dados: Realizando uma consulta no banco de dados
-// try {
-//     $result = $db->fetch("SELECT * FROM clientes WHERE email = :email", ['email' => 'joao@example.com']);
-//     echo "<pre>";
-//     var_dump($result);
-//     echo "</pre>";
-// } catch (Exception $e) {
-//     echo "Erro na consulta: " . $e->getMessage();
-// }
-
