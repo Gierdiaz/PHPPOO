@@ -1,8 +1,7 @@
 {
-    "name": "allison/phppoo",
     "autoload": {
         "psr-4": {
-            "Allison\\Phppoo\\": "App/"
+            "App\\": "App/"
         }
     },
     "authors": [
