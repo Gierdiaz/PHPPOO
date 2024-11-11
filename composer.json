@@ -1,13 +1,13 @@
 {
-    "name": "gierd/poo",
+    "name": "allison/phppoo",
     "autoload": {
         "psr-4": {
-            "App\\": "App/"
+            "Allison\\Phppoo\\": "App/"
         }
     },
     "authors": [
         {
-            "name": "Gierdiaz",
+            "name": "Allison",
             "email": "gierdiaz@hotmail.com"
         }
     ],

@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-require_once __DIR__ . '/autoload.php';
-
 use App\Contracts\Authentication;
 use App\Traits\Timestamps;
 

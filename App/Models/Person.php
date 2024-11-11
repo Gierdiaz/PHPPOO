@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-require_once __DIR__ . '/autoload.php';
-
 use InvalidArgumentException;
 
 // Não podem ser instanciados objetos a partir da classe abstrata
