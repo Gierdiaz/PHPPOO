@@ -1,0 +1,39 @@
+services:
+  nginx:
+    image: nginx:latest
+    container_name: php-poo-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./App:/var/www/html
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php
+
+  php:
+    build:
+      context: .
+      dockerfile: ./docker/php/Dockerfile
+    container_name: php-poo-php
+    volumes:
+      - ./App:/var/www/html
+    environment:
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_NAME=phppoo
+      - DB_USER=phppoo
+      - DB_PASSWORD=secret
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:latest
+    container_name: php-poo-postgres
+    environment:
+      POSTGRES_USER: phppoo
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: phppoo
+    volumes:
+      - ./docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"

@@ -6,6 +6,18 @@ use App\Models\Address;
 use App\Models\Client;
 use App\Models\Employee;
 use App\Models\Person;
+use App\Infrastructure\Database\Postgres;
+
+use Dotenv\Dotenv;
+
+$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+$dbHost = getenv('DB_HOST');
+$dbPort = getenv('DB_PORT');
+$dbName = getenv('DB_NAME');
+$dbUser = getenv('DB_USER');
+$dbPassword = getenv('DB_PASSWORD');
 
 // Criando os objetos Address com os respectivos dados
 $addressRiodeJaneiro = new Address(
@@ -94,4 +106,16 @@ echo "<h1>Is Adult: " . Person::getIsAdultStatus() . "</h1>";
 echo "<p>Employee Identifier: " . $employee->identifier() . "</p>";
 
 echo "<p>Client Identifier: " . $client->identifier() . "</p>";
+
+echo "<hr>";
+
+// Exemplo de uso do banco de dados: Realizando uma consulta no banco de dados
+// try {
+//     $result = $db->fetch("SELECT * FROM clientes WHERE email = :email", ['email' => 'joao@example.com']);
+//     echo "<pre>";
+//     var_dump($result);
+//     echo "</pre>";
+// } catch (Exception $e) {
+//     echo "Erro na consulta: " . $e->getMessage();
+// }
 
