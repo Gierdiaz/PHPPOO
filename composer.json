@@ -1,0 +1,15 @@
+{
+    "name": "gierd/poo",
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Gierdiaz",
+            "email": "gierdiaz@hotmail.com"
+        }
+    ],
+    "require": {}
+}

@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Models;
+
+use App\Traits\Timestamps;
+
 class Client extends Person
 {
     use Timestamps;

@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Traits;
+
+use DateTime;
+
 trait Timestamps
 {
     private ?DateTime $createdAt = null;

@@ -1,9 +1,12 @@
 <?php
 
-require_once 'Person.php';
-require_once 'Address.php';
-require_once 'Employee.php';
-require_once 'Client.php';
+// require_once __DIR__ . '/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php'; 
+
+use App\Models\Address;
+use App\Models\Client;
+use App\Models\Employee;
+use App\Models\Person;
 
 // Criando os objetos Address com os respectivos dados
 $addressRiodeJaneiro = new Address(
